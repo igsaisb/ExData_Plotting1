@@ -10,12 +10,12 @@
 ##https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 
 ##Reading the data source in  Assumes file in working directory.
-data_full <- read.csv("household_power_consumption.txt", header=T, sep=';', 
+data.all <- read.csv("household_power_consumption.txt", header=T, sep=';', 
                       na.strings="?",nrows=2075259, check.names=F, 
                       stringsAsFactors=F, comment.char="", quote='\"')
 
 ##Subset to assigned dates.
-data1 <- subset(data_full, Date %in% c("1/2/2007","2/2/2007"))
+data1 <- subset(data.all, Date %in% c("1/2/2007","2/2/2007"))
 
 ##Transforming date and time formats to allow for proper formatting.
 data1$Date <- as.Date(data1$Date, format="%d/%m/%Y")
